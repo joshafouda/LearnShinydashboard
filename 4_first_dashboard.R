@@ -4,6 +4,8 @@ set.seed(123) # For reproducibility
 library(dplyr)
 library(lubridate)
 library(ggplot2)
+library(tidyr)
+library(shinydashboard)
 
 # Simulating the dataframe
 soccer <- tibble(
@@ -223,7 +225,7 @@ body <- dashboardBody(tabItems(
                  tabPanel("Red cards", plotOutput("red"))))
 ))
 
-ui <- dashboardPage(header, sidebar, body)
+ui <- dashboardPage(skin = "green", header, sidebar, body)
 
 server <- function(input, output) {
   # Fill in outputs in first to third rows of the first page
